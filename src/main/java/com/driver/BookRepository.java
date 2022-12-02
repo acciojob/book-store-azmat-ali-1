@@ -36,7 +36,7 @@ public class BookRepository {
         bookMap.clear();
     }
 
-    public List<Book> findBooks_ByAuthor(String author){
+    public List<Book> findBooksByAuthor(String author){
         List<Book> listOfBook = new ArrayList<>();
         for(Book book : bookMap.values()){
             if(Objects.equals(author,book.getAuthor())){
@@ -47,7 +47,7 @@ public class BookRepository {
         return listOfBook;
     }
 
-    public List<Book> findBooks_ByGenre(String genre){
+    public List<Book> findBooksByGenre(String genre){
         List<Book> listOfBook = new ArrayList<>();
         for(Book book : bookMap.values()){
             if(Objects.equals(genre,book.getGenre())){

@@ -17,7 +17,7 @@ public class BookController {
     // One example controller, make the rest by yourself
     @PostMapping("/books/create-book")
     public ResponseEntity<Book> createBook(@RequestBody() Book book){
-        Book newbook = bookService.create_Book(book);
+        Book newbook = bookService.createBook(book);
         return new ResponseEntity<>(newbook, HttpStatus.CREATED);
     }
 
@@ -27,16 +27,16 @@ public class BookController {
     }
     @DeleteMapping("/books/delete-book-by-id/{id}")
     public ResponseEntity<String> deleteBookById(@PathVariable("id") String id){
-        bookService.delete_BookById(id);
+        bookService.deleteBookById(id);
         return new ResponseEntity<>("success", HttpStatus.ACCEPTED);
     }
     @GetMapping("/books/get-all-books")
     public ResponseEntity<List<Book>> getAllBooks(){
-        return new ResponseEntity<>(bookService.find_AllBooks(),HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(bookService.findAllBooks(),HttpStatus.ACCEPTED);
     }
     @DeleteMapping("/books/delete-all-books")
     public ResponseEntity<String> deleteAllBooks(){
-        bookService.delete_AllBooks();
+        bookService.deleteAllBooks();
         return new ResponseEntity<>("success",HttpStatus.ACCEPTED);
     }
     @GetMapping("/books/get-books-by-author")

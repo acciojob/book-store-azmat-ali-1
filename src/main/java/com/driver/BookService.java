@@ -13,7 +13,7 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
-    public Book create_Book(Book book){
+    public Book createBook(Book book){
         return bookRepository.save(book);
     }
 
@@ -21,23 +21,23 @@ public class BookService {
         return bookRepository.findBookById(Integer.parseInt(id));
     }
 
-    public void delete_BookById(String id){
+    public void deleteBookById(String id){
         bookRepository.deleteBookById(Integer.parseInt(id));
     }
 
-    public List<Book> find_AllBooks(){
+    public List<Book> findAllBooks(){
         return bookRepository.findAll();
     }
 
-    public void delete_AllBooks(){
+    public void deleteAllBooks(){
         bookRepository.deleteAll();
     }
 
     public List<Book> findBooksByAuthor(String author){
-        return bookRepository.findBooks_ByAuthor(author);
+        return bookRepository.findBooksByAuthor(author);
     }
 
     public List<Book> find_BooksByGenre(String genre){
-        return bookRepository.findBooks_ByGenre(genre);
+        return bookRepository.findBooksByGenre(genre);
     }
 }
