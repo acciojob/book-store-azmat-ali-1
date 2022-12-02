@@ -16,7 +16,7 @@ public class BookController {
 
     // One example controller, make the rest by yourself
     @PostMapping("/books/create-book")
-    public ResponseEntity<Book> createBook(@RequestBody(required = true) Book book){
+    public ResponseEntity<Book> createBook(@RequestBody() Book book){
         Book newbook = bookService.create_Book(book);
         return new ResponseEntity<>(newbook, HttpStatus.CREATED);
     }
@@ -41,7 +41,7 @@ public class BookController {
     }
     @GetMapping("/books/get-books-by-author")
     public ResponseEntity<List<Book>> findBooksByAuthor(@RequestParam("author") String author){
-        return new ResponseEntity<>(bookService.find_AllBooks(),HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(bookService.findBooksByAuthor(author),HttpStatus.ACCEPTED);
     }
     @GetMapping("/books/get-books-by-genre")
     public ResponseEntity<List<Book>> findBooksByGenre(@RequestParam("genre") String genre){
