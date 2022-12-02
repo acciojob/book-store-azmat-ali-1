@@ -15,35 +15,35 @@ public class BookController {
     BookService bookService;
 
     // One example controller, make the rest by yourself
-    @PostMapping("/create-book")
+    @PostMapping("/books/create-book")
     public ResponseEntity<Book> createBook(@RequestBody(required = true) Book book){
         Book newbook = bookService.create_Book(book);
         return new ResponseEntity<>(newbook, HttpStatus.CREATED);
     }
 
-    @GetMapping("/get-book-by-id/{id}")
+    @GetMapping("/books/get-book-by-id/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable("id")String id){
         return new ResponseEntity<>(bookService.findBookById(id),HttpStatus.ACCEPTED);
     }
-    @DeleteMapping("/delete-book-by-id/{id}")
+    @DeleteMapping("/books/delete-book-by-id/{id}")
     public ResponseEntity<String> deleteBookById(@PathVariable("id") String id){
         bookService.delete_BookById(id);
         return new ResponseEntity<>("success", HttpStatus.ACCEPTED);
     }
-    @GetMapping("/get-all-books")
+    @GetMapping("/books/get-all-books")
     public ResponseEntity<List<Book>> getAllBooks(){
         return new ResponseEntity<>(bookService.find_AllBooks(),HttpStatus.ACCEPTED);
     }
-    @DeleteMapping("/delete-all-books")
+    @DeleteMapping("/books/delete-all-books")
     public ResponseEntity<String> deleteAllBooks(){
         bookService.delete_AllBooks();
         return new ResponseEntity<>("success",HttpStatus.ACCEPTED);
     }
-    @GetMapping("/get-books-by-author")
+    @GetMapping("/books/get-books-by-author")
     public ResponseEntity<List<Book>> findBooksByAuthor(@RequestParam("author") String author){
         return new ResponseEntity<>(bookService.find_AllBooks(),HttpStatus.ACCEPTED);
     }
-    @GetMapping("/get-books-by-genre")
+    @GetMapping("/books/get-books-by-genre")
     public ResponseEntity<List<Book>> findBooksByGenre(@RequestParam("genre") String genre){
         return new ResponseEntity<>(bookService.find_BooksByGenre(genre),HttpStatus.ACCEPTED);
     }

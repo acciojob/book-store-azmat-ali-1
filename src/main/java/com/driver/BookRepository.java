@@ -7,12 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Component
 public class BookRepository {
-
-
-    public BookRepository(){
-        
-    }
-
     Map<Integer,Book> bookMap = new HashMap<>();
 
     public Book save(Book book){
